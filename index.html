@@ -1,21 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>CHATBOX CURRENCY</title>
+
+<link rel="icon" type="image/png" href="icon.png">
+
 <style>
 body {
-  font-family: Arial;
-  max-width: 600px;
+  font-family: Arial, sans-serif;
+  max-width: 650px;
   margin: 80px auto;
+  padding: 20px;
 }
+
+h1 {
+  font-size: 40px;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: #666;
+  margin-top: 0;
+}
+
+.converter {
+  margin-top: 30px;
+  padding: 25px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+}
+
+.converter h2 {
+  margin-top: 0;
+}
+
 input {
-  font-size: 24px;
+  font-size: 22px;
   padding: 10px;
   width: 150px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }
+
 .result {
-  font-size: 28px;
+  font-size: 26px;
   margin-top: 20px;
+  font-weight: bold;
 }
 </style>
 </head>
@@ -23,21 +56,91 @@ input {
 <body>
 
 <h1>CHATBOX CURRENCY</h1>
-<p>The unbelievable currency</p>
 
-<input id="amount" type="number" value="1">
+<p class="subtitle">
+The unbelievable currency
+</p>
+
+<p>
+OwO Cash Currency
+</p>
+
+
+<div class="converter">
+
+<h2>Unbelievable Currency → OwO Cash</h2>
+
+<input
+id="unbelievable"
+type="number"
+placeholder="Enter amount"
+>
 
 <span> Unbelievable Currency</span>
 
-<div class="result" id="result">5 OwO Cash</div>
+<div class="result" id="owoResult"></div>
+
+</div>
+
+
+<div class="converter">
+
+<h2>OwO Cash → Unbelievable Currency</h2>
+
+<input
+id="owo"
+type="number"
+placeholder="Enter amount"
+>
+
+<span> OwO Cash</span>
+
+<div class="result" id="unbelievableResult"></div>
+
+</div>
+
 
 <script>
-const amount = document.getElementById("amount")
-const result = document.getElementById("result")
 
-amount.addEventListener("input", () => {
-  result.textContent = (amount.value * 5) + " OwO Cash"
+const unbelievable =
+document.getElementById("unbelievable")
+
+const owoResult =
+document.getElementById("owoResult")
+
+
+unbelievable.addEventListener("input", () => {
+
+if (unbelievable.value === "") {
+owoResult.textContent = ""
+return
+}
+
+owoResult.textContent =
+(unbelievable.value / 5) + " OwO Cash"
+
 })
+
+
+const owo =
+document.getElementById("owo")
+
+const unbelievableResult =
+document.getElementById("unbelievableResult")
+
+
+owo.addEventListener("input", () => {
+
+if (owo.value === "") {
+unbelievableResult.textContent = ""
+return
+}
+
+unbelievableResult.textContent =
+(owo.value * 5) + " Unbelievable Currency"
+
+})
+
 </script>
 
 </body>
